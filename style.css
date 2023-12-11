@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-inline: auto;
+    background-color: rgb(158, 184, 133);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.right {
+    margin-left: 0.5rem;
+}
+
+.right ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.right ul a {
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    color: #252323;
+    cursor: pointer;
+}
+
+.right ul .active {
+    background: #252323;
+    color: rgb(158, 184, 133);
+    padding: 0.4rem 1.2rem;
+    border-radius: 1rem;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.content {
+    max-width: 45rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.content h2 {
+    font-size: 3rem;
+    margin: 0.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.content p {
+    color: #252323;
+    margin: 0.5rem;
+}
+
+.content .btn {
+    background: #252323;
+    padding: 0.5rem 1.7rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: rgb(158, 184, 133);
+    font-size: 1.2rem;
+    border-radius: 1.2rem;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #252323;
+    padding: 7px;
+    position: relative;
+    width: min(100%, 50rem);
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+input {
+    padding: 16px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    flex: 1;
+}
+
+#enterLink {
+    background-color: rgb(158, 184, 133);
+}
+
+#enterLink::placeholder {
+    color:#252323;
+}
+
+.input-btn {
+    padding: 0.5rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 53.7px;
+    color: #252323;
+    font-size: 1rem;
+    text-align: center;
+    background: rgb(158, 184, 133);
+    cursor: pointer;
+    border: 1px solid rgb(158, 184, 133);
+    border-left: 1.5px solid #252323;
+}
+
+.input-btn:hover {
+    color: rgb(158, 184, 133);
+    background-color: #252323;
+    border: 1px solid rgb(158, 184, 133);
+}
+
+#shortenedURL {
+    margin: 35px;
+    color: #252323;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(158, 184, 133);
+    padding: 15px;
+    position: relative;
+    width: min(100%, 50rem);
+    border: 6px solid #252323;
+    border-radius: 30px;
+    overflow: hidden;
+}
