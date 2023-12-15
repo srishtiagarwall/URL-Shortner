@@ -1,4 +1,4 @@
-const requestUrl = 'http://127.0.0.1:8001/URL-Shortner/?#';
+const requestUrl = 'http://127.0.0.1:8001/url';
 
 const urlForm = document.querySelector('.input-container');
 const shortenedUrlContainer = document.getElementById('shortenedURL');
@@ -8,33 +8,31 @@ urlForm.addEventListener('submit', async (e) => {
     const urlInput = document.getElementById('enterLink').value;
 
     try {
-        const response = await fetch(requestUrl, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ originalUrl: urlInput })
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "url": urlInput
         });
 
-        console.log(response);
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
 
-        if (!response.ok) {
+        const request = await fetch("http://localhost:8001/url", requestOptions);        
+
+        if (!request.ok) {
             throw new Error('Network response was not ok.');
         }
 
-        /*const data = await response.json(); // Parsing the response to JSON
-        console.log('Received data:', data);
+        const response = await request.json();
+        console.log(response.id);
 
-        const shortUrl = window.location.origin + '/' + data.id;
-        console.log(shortUrl); // Log the shortened URL
-
-        shortenedUrlContainer.innerText = `Shortened URL: ${shortUrl}`;
-
-    } catch (error) {
-        console.error('Error:', error); */
-
-        if (data.shortenedUrl) {
-            const shortUrl = window.location.origin + '/' + data.shortenedUrl; // Use the shortened URL from the server response
+        if (response.id != "") {
+            const shortUrl = window.location.origin + '/' + response.id; // Use the shortened URL from the server response
             shortenedUrlContainer.innerText = `Shortened URL: ${shortUrl}`; // Display the shortened URL to the user
         } else {
             throw new Error('Shortened URL not received.'); // Error handling if shortened URL is not available in the response

@@ -5,6 +5,7 @@ const URL = require('./models/url');
 const { handleGenerateNewShortURL } = require("./controllers/url");
 const app = express();
 const shortid = require("shortid");
+const cors = require('cors');
 const port = 8001;
 
 connectToMongoDB("mongodb://localhost:27017/URL-Shortner")
@@ -12,6 +13,8 @@ connectToMongoDB("mongodb://localhost:27017/URL-Shortner")
 .catch(err => console.error('MongoDB connection error:', err));
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use('/url', urlRoute);
 
